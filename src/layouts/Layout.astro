@@ -24,6 +24,39 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <title>{title}</title>
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="El Rincón de Isma - Una comunidad dedicada al aprendizaje de Laravel y programación con contenido educativo en YouTube"
+    />
+    <meta
+      name="keywords"
+      content="Laravel, PHP, programación, desarrollo web, tutoriales, YouTube, El Rincón de Isma"
+    />
+    <meta name="author" content="El Rincón de Isma" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="El Rincón de Isma - Una comunidad dedicada al aprendizaje de Laravel y programación con contenido educativo en YouTube"
+    />
+    <meta property="og:image" content="/images/logos/logo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta
+      property="twitter:description"
+      content="El Rincón de Isma - Una comunidad dedicada al aprendizaje de Laravel y programación con contenido educativo en YouTube"
+    />
+    <meta property="twitter:image" content="/images/logos/logo.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url} />
   </head>
   <body class="min-h-screen flex flex-col bg-gray-800 font-jetbrains">
     <Header />
