@@ -1,16 +1,16 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import BentoSection from "../components/BentoSection.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="El Rincón de Isma - Inicio">
+  <HeroSection
+    title="Bienvenido a El Rincón de Isma"
+    subtitle="Una comunidad dedicada al aprendizaje de Laravel y programación con contenido educativo en YouTube"
+    ctaText="Descubre más"
+    ctaLink="/acerca"
+  />
+
+  <BentoSection title="Explora Nuestro Contenido" />
+</Layout>

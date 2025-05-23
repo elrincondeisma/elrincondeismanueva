@@ -1,0 +1,46 @@
+---
+interface Props {
+  siteTitle?: string;
+}
+
+const { siteTitle = "El Rincón de Isma" } = Astro.props;
+
+const menuItems = [
+  { href: "/", text: "Inicio" },
+  { href: "/acerca", text: "Acerca" },
+  { href: "/servicios", text: "Servicios" },
+  { href: "/contacto", text: "Contacto" },
+];
+---
+
+<header class="bg-gray-800 text-white shadow-lg">
+  <nav class="container mx-auto px-4 py-3">
+    <div class="flex justify-center items-center">
+      <!-- Logo y Título -->
+      <a href="/" class="flex items-center">
+        <div
+          class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md"
+        >
+          <img
+            src="/images/logos/logo.png"
+            alt="Logo El Rincón de Isma"
+            class="w-full h-full object-cover"
+            width="48"
+            height="48"
+          />
+        </div>
+        <h1 class="text-2xl font-bold tracking-tight ml-3">{siteTitle}</h1>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Toggle del menú móvil
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  mobileMenuButton?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
+</script>

@@ -1,0 +1,107 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title = "Contenido Destacado" } = Astro.props;
+
+const bentoItems = [
+  {
+    title: "YouTube",
+    description:
+      "Suscríbete a nuestro canal para contenido semanal de programación y desarrollo web",
+    icon: "📺",
+    color: "bg-red-500",
+    size: "col-span-1 md:col-span-1 lg:col-span-3",
+    link: "https://youtube.com/@elrincondeisma?sub_confirmation=1",
+  },
+  {
+    title: "Tutoriales Laravel",
+    description:
+      "Aprende Laravel desde cero con nuestros tutoriales paso a paso",
+    icon: "🚀",
+    color: "bg-blue-500",
+    size: "col-span-1 md:col-span-1 lg:col-span-2",
+    link: "https://youtube.com/@elrincondeisma?sub_confirmation=1",
+  },
+  {
+    title: "Recursos",
+    description: "Accede a recursos exclusivos, plantillas y código fuente",
+    icon: "📚",
+    color: "bg-purple-500",
+    size: "col-span-1",
+    link: "https://youtube.com/@elrincondeisma?sub_confirmation=1",
+  },
+
+  {
+    title: "Auditoría",
+    description: "Servicios de auditoría y optimización de código",
+    icon: "🔍",
+    color: "bg-yellow-500",
+    size: "col-span-1",
+    link: "mailto:ismael@elrincondeisma.com",
+  },
+  {
+    title: "Comunidad",
+    description:
+      "Únete a nuestra comunidad de desarrolladores y comparte conocimiento",
+    icon: "👥",
+    color: "bg-green-500",
+    size: "col-span-1 md:col-span-2",
+    link: "https://youtube.com/@elrincondeisma?sub_confirmation=1",
+  },
+];
+---
+
+<section class="">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-white">{title}</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      {
+        bentoItems.map((item) => (
+          <a
+            href={item.link}
+            class={`${item.size} ${item.color} p-6 rounded-2xl text-white transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer block`}
+          >
+            <div class="flex items-start gap-4">
+              <span class="text-4xl">{item.icon}</span>
+              <div>
+                <h3 class="text-xl font-bold mb-2">{item.title}</h3>
+                <p class="text-white/90">{item.description}</p>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-5xl mx-auto mt-8">
+      <div class="bg-gray-700 p-6 rounded-2xl shadow-md text-center">
+        <div class="text-3xl font-bold text-purple-400 mb-2">10K+</div>
+        <div class="text-gray-300">Suscriptores</div>
+      </div>
+      <div class="bg-gray-700 p-6 rounded-2xl shadow-md text-center">
+        <div class="text-3xl font-bold text-blue-400 mb-2">100+</div>
+        <div class="text-gray-300">Tutoriales</div>
+      </div>
+      <div class="bg-gray-700 p-6 rounded-2xl shadow-md text-center">
+        <div class="text-3xl font-bold text-green-400 mb-2">50+</div>
+        <div class="text-gray-300">Proyectos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+  }
+
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

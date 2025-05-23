@@ -1,0 +1,80 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  title = "Bienvenido a El Rincón de Isma",
+  subtitle = "Una comunidad dedicada al aprendizaje de Laravel y programación con contenido educativo en YouTube",
+  ctaText = "Explorar",
+  ctaLink = "/acerca",
+} = Astro.props;
+---
+
+<section class="relative text-white py-10">
+  <!-- Fondo con gradiente y patrón -->
+  <div class="absolute inset-0"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Logo -->
+      <div class="mb-8 flex justify-center">
+        <div class="">
+          <img
+            src="/images/logos/logo.png"
+            alt="Logo El Rincón de Isma"
+            class="h-64 object-cover overflow-hidden shadow-lg mask-radial-at-center mask-radial-from-10% mask-radial-to-80%"
+          />
+        </div>
+      </div>
+
+      <!-- Título y Subtítulo -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        {title}
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+        {subtitle}
+      </p>
+
+      <!-- CTA Button -->
+      <!-- <a
+        href={ctaLink}
+        class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 transform hover:scale-105"
+      >
+        {ctaText}
+      </a> -->
+
+      <!-- Scroll Indicator -->
+      <div class="mt-12 animate-bounce">
+        <svg
+          class="w-6 h-6 mx-auto"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animación suave para el scroll indicator */
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+</style>
