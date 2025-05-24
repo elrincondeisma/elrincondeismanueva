@@ -50,7 +50,7 @@ const bentoItems = [
     icon: "👥",
     color: "bg-green-500",
     size: "col-span-1 md:col-span-2",
-    link: "https://youtube.com/@elrincondeisma?sub_confirmation=1",
+    link: "https://discord.gg/meZU65c67e",
   },
 ];
 ---
@@ -70,6 +70,8 @@ const bentoItems = [
       bentoItems.map((item) => (
         <a
           href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
           class={`${item.size} ${item.color} p-6 rounded-2xl text-white transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer block`}
         >
           <div class="flex items-start gap-4">
