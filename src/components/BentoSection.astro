@@ -1,9 +1,11 @@
 ---
+import StatsSection from "./StatsSection.astro";
+
 interface Props {
-  title: string;
+  title?: string;
 }
 
-const { title = "Contenido Destacado" } = Astro.props;
+const { title = "Explora Nuestro Contenido" } = Astro.props;
 
 const bentoItems = [
   {
@@ -53,46 +55,44 @@ const bentoItems = [
 ];
 ---
 
-<section class="">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12 text-white">{title}</h2>
+<div class="container mx-auto px-4 py-16">
+  <h2
+    class="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-8"
+  >
+    {title}
+  </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-      {
-        bentoItems.map((item) => (
-          <a
-            href={item.link}
-            class={`${item.size} ${item.color} p-6 rounded-2xl text-white transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer block`}
-          >
-            <div class="flex items-start gap-4">
-              <span class="text-4xl">{item.icon}</span>
-              <div>
-                <h3 class="text-xl font-bold mb-2">{item.title}</h3>
-                <p class="text-white/90">{item.description}</p>
-              </div>
+  <!-- Bento Grid -->
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto"
+  >
+    {
+      bentoItems.map((item) => (
+        <a
+          href={item.link}
+          class={`${item.size} ${item.color} p-6 rounded-2xl text-white transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer block`}
+        >
+          <div class="flex items-start gap-4">
+            <span class="text-4xl">{item.icon}</span>
+            <div>
+              <h3 class="text-xl font-bold mb-2">{item.title}</h3>
+              <p class="text-white/90">{item.description}</p>
             </div>
-          </a>
-        ))
-      }
-    </div>
-
-    <!-- Estadísticas -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-5xl mx-auto mt-8">
-      <div class="bg-gray-700 p-6 rounded-2xl shadow-md text-center">
-        <div class="text-3xl font-bold text-purple-400 mb-2">10K+</div>
-        <div class="text-gray-300">Suscriptores</div>
-      </div>
-      <div class="bg-gray-700 p-6 rounded-2xl shadow-md text-center">
-        <div class="text-3xl font-bold text-blue-400 mb-2">100+</div>
-        <div class="text-gray-300">Tutoriales</div>
-      </div>
-      <div class="bg-gray-700 p-6 rounded-2xl shadow-md text-center">
-        <div class="text-3xl font-bold text-green-400 mb-2">50+</div>
-        <div class="text-gray-300">Proyectos</div>
-      </div>
-    </div>
+          </div>
+        </a>
+      ))
+    }
   </div>
-</section>
+
+  <StatsSection
+    title="Números de la comunidad"
+    stats={{
+      subscribers: "20k+",
+      tutorials: "100+",
+      projects: "50+",
+    }}
+  />
+</div>
 
 <style>
   .grid {
